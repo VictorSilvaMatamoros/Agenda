@@ -1,0 +1,21 @@
+<form>
+  <div>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" [formControl]="nombreControl" required>
+  </div>
+  <div>
+    <label for="numero">Número:</label>
+    <input type="text" id="numero" [formControl]="numeroControl" required>
+  </div>
+  <button type="button" (click)="agregarContacto(); limpiarInputs()">Agregar Contacto</button>
+</form>
+
+
+<h2>Contactos:</h2>
+<ul>
+  
+  <li *ngFor="let contacto of contactos; let i = index">
+    <p>{{ contacto.nombre }} - {{ contacto.numero }}</p>
+    <button (click)="borrarContacto(i)">Borrar</button>
+  </li>
+</ul>
